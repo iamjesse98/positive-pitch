@@ -49,6 +49,7 @@ function PositivePitch() {
     this.previewNotes = false;
     this.totalGuesses = 0;
     this.rightGuesses = 0;
+    this.confirmed = false;
 
     for (var i = 0; i < 12; i++) {
         this.notes.push(i);
@@ -60,6 +61,7 @@ function PositivePitch() {
     }
 
     this.startGuess = function() {
+        this.confirmed = false;
         if (this.tonicOn) {
             this.playTonic();
             var that = this;
@@ -99,16 +101,19 @@ function PositivePitch() {
 
     this.confirmGuess = function() {
         this.displayCorrectChord();
-        this.totalGuesses++;
+        this.confirmed || this.totalGuesses++;
         if (this.currentChord.length !== this.guesses.length) {
+            this.confirmed = true;
             return false;
         }
         for (var i = 0; i < this.currentChord.length; i++) {
             if (this.guesses.indexOf(this.currentChord[i]) === -1) {
+                this.confirmed = true;
                 return false;
             }
         }
-        this.rightGuesses++;
+        this.confirmed || this.rightGuesses++;
+        this.confirmed = true;
         return true;
     }
 
