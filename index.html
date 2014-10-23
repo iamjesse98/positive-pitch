@@ -32,10 +32,16 @@
     </div>
     <div class="right-sidebar">
         Play <input type="text" value="3" id="chordsize" class="note-number"> notes<br>
-        <input type="checkbox" id="tonic" checked> Play tonic<br>
+        <input type="checkbox" id="tonic" checked> Play tonic (C3)<br>
         <input type="checkbox" id="display-notename" checked> Display note names<br>
         <input type="checkbox" id="display-controls" checked> Display keyboard controls<br>
         <input type="checkbox" id="preview-notes"> Preview notes<br>
+        Scale:
+        <select id="scale-selector" size="1">
+            <option value="chromatic">Chromatic</option>
+            <option value="major">Major</option>
+            <option value="minor">Minor</option>
+        </select>
     </div>
     <div class="piano-wrapper">
         <div class="white-wrapper">

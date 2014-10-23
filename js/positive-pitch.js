@@ -1,3 +1,6 @@
+var SCALE_CHROMATIC = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+var SCALE_MINOR = [0, 2, 3, 5, 7, 8, 10];
+var SCALE_MAJOR = [0, 2, 4, 5, 7, 9, 11];
 var KEYMAP = {
     "A": 0,
     "W": 1,
@@ -55,6 +58,16 @@ function PositivePitch() {
         this.notes.push(i);
     }
 
+    this.setScale = function(scale) {
+        console.log(scale);
+        if (scale.toLowerCase() == "minor") {
+            this.notes = SCALE_MINOR;
+        } else if (scale.toLowerCase() == "major") {
+            this.notes = SCALE_MAJOR;
+        } else if (scale.toLowerCase() == "chromatic") {
+            this.notes = SCALE_CHROMATIC;
+        }
+    }
     this.getRandomNotes = function(len) {
         var pick = shuffle(this.notes);
         return pick.slice(0, len);
@@ -186,6 +199,9 @@ window.onload = function() {
     });
     $("#chordsize").change(function() {
         pp.chordSize = parseInt($(this).val());
+    });
+    $("#scale-selector").change(function() {
+        pp.setScale($("#scale-selector").val());
     });
     /*for (var i = 0; i < 12; i++) {*/
     /*$("#key_" + i).click(function() {var a = i; pp.addGuess(a);});*/
