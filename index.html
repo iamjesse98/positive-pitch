@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8"> 
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet/less" type="text/css" href="css/piano.less" charset="utf-8"></script> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/positive-pitch.js" charset="utf-8"></script> 
+	<script type="text/javascript" src="js/less.js" charset="utf-8"></script> 
+    <title>positive pitch</title>
+</head>
+<body>
+<audio id="sound_0"  src="audio/0.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_1"  src="audio/1.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_1"  src="audio/1.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_2"  src="audio/2.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_3"  src="audio/3.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_4"  src="audio/4.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_5"  src="audio/5.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_6"  src="audio/6.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_7"  src="audio/7.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_8"  src="audio/8.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_9"  src="audio/9.ogg"  preload="auto" type="audio/ogg"></audio>
+<audio id="sound_10" src="audio/10.ogg" preload="auto" type="audio/ogg"></audio>
+<audio id="sound_11" src="audio/11.ogg" preload="auto" type="audio/ogg"></audio>
+<div class="container">
+    <h1>positive pitch <small>ear trainer</small></h1>
+    <div class="left-sidebar">
+        <button id="play">PLAY! <small class="controls">TAB</small></button>
+        <button id="repeat">REPEAT <small class="controls">SPACE</small></button><br>
+        <button id="submit">SUBMIT <small class="controls">ENTER</small></button><br>
+    </div>
+    <div class="right-sidebar">
+        Play <input type="text" value="3" id="chordsize" class="note-number"> notes<br>
+        <input type="checkbox" id="tonic" checked> Play tonic<br>
+        <input type="checkbox" id="display-notename" checked> Display note names<br>
+        <input type="checkbox" id="display-controls" checked> Display keyboard controls<br>
+        <input type="checkbox" id="preview-notes"> Preview notes<br>
+    </div>
+    <div class="piano-wrapper">
+        <div class="white-wrapper">
+            <div class="key white-key" id="key_0" ><span class="notename">1</span><div class="controls key-controls">A</div></div>
+            <div class="key white-key" id="key_2" ><span class="notename">2</span><div class="controls key-controls">S</div></div>
+            <div class="key white-key" id="key_4" ><span class="notename">3</span><div class="controls key-controls">D</div></div>
+            <div class="key white-key" id="key_5" ><span class="notename">4</span><div class="controls key-controls">F</div></div>
+            <div class="key white-key" id="key_7" ><span class="notename">5</span><div class="controls key-controls">G</div></div>
+            <div class="key white-key" id="key_9" ><span class="notename">6</span><div class="controls key-controls">H</div></div>
+            <div class="key white-key" id="key_11"><span class="notename">7</span><div class="controls key-controls">J</div></div>
+        </div>
+        <div class="black-wrapper">
+            <div class="key black-key" id="key_1" ><span class="notename">b2</span><div class="controls key-controls">W</div></div>
+            <div class="key black-key" id="key_3" ><span class="notename">b3</span><div class="controls key-controls">E</div></div>
+            <div class="key black-key" id="key_6" ><span class="notename">#4</span><div class="controls key-controls">T</div></div>
+            <div class="key black-key" id="key_8" ><span class="notename">b6</span><div class="controls key-controls">Z</div></div>
+            <div class="key black-key" id="key_10"><span class="notename">b7</span><div class="controls key-controls">U</div></div>
+        </div>
+        <div class="stats">
+            <span id="right-guesses">0</span> of <span id="total-guesses">0</span> correct 
+            (<span id="percentage-right">100</span>%)
+            <span id="result"></span><br>
+        </div>
+
+    </div>
+</div>
+<!--<div class="result"> correct </div>-->
+</body>
+</html>
