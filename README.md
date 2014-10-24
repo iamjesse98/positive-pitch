@@ -1,4 +1,5 @@
 positive pitch
 ==============
 
-first draft for an ear training app for musicians.
+First draft for an ear training app for musicians.
+Try it at http://buesing.github.io/positive-pitch/
