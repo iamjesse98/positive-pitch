@@ -15,10 +15,27 @@ var KEYMAP = {
     "U": 10,
     "J": 11,
 }
+var DEFAULTS = {
+    chordSize: 2,
+    tonicOn: true,
+    displayNoteNames: true,
+    displayKeyboardControls: true,
+    previewNotes: false,
+};
+
+function supports_html5_storage() {
+    try {
+        return 'localStorage' in window && window['localStorage'] !== null;
+    } catch (e) {
+        return false;
+    }   
+}
+
 function shuffle(o){ //v1.0
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
-};
+}
+
 var channel_max = 20;
 var audiochannels = new Array();
 
@@ -47,9 +64,9 @@ function PositivePitch() {
     this.guesses = [];
     this.currentChord = []
     this.timer = null;
-    this.chordSize = 3;
-    this.tonicOn = true;
-    this.previewNotes = false;
+    this.chordSize = DEFAULTS.chordSize;
+    this.tonicOn = DEFAULTS.tonicOn;
+    this.previewNotes = DEFAULTS.previewNotes;
     this.totalGuesses = 0;
     this.rightGuesses = 0;
     this.confirmed = false;
@@ -187,21 +204,33 @@ window.onload = function() {
     });
     $("#tonic").change(function() {
         pp.tonicOn = $(this).prop("checked");
+        localStorage["tonic"] = pp.tonicOn;
     });
     $("#display-notename").change(function() {
         $(".notename").toggle();
+        localStorage["displayNoteNames"] = $("#display-notename").prop("checked");
     });
     $("#display-controls").change(function() {
         $(".controls").toggle();
+        localStorage["displayKeyboardControls"] = $("#display-controls").prop("checked");
     });
     $("#preview-notes").change(function() {
         pp.previewNotes = $(this).prop("checked");
+        localStorage["previewNotes"] = $("#preview-notes").prop("checked");
     });
     $("#chordsize").change(function() {
         pp.chordSize = parseInt($(this).val());
+        localStorage["chordSize"] = pp.chordSize;
     });
     $("#scale-selector").change(function() {
         pp.setScale($("#scale-selector").val());
+        localStorage["scale"] = $("#scale-selector").val();
+    });
+    $("#help").click(function() {
+        $(".help-outer").show();
+        $(".help-outer").click(function() {
+            $(".help-outer").hide();
+        });
     });
     /*for (var i = 0; i < 12; i++) {*/
     /*$("#key_" + i).click(function() {var a = i; pp.addGuess(a);});*/
@@ -219,4 +248,19 @@ window.onload = function() {
     $("#key_10").click(function() {pp.addGuess(10);});
     $("#key_11").click(function() {pp.addGuess(11);});
     document.onkeydown = function(e) {pp.handleKey(e);};
+
+    if (supports_html5_storage()) {
+        if (localStorage["hasStorage"] == true) {
+            // load stored state
+            pp.tonicOn = localStorage["tonic"];
+            $("#tonic").prop("checked", localStorage["tonic"]);
+        } else {
+            localStorage["hasStorage"] = true;
+            localStorage["tonic"] = DEFAULTS.tonicOn;
+            localStorage["displayNotenames"] = DEFAULTS.displayNoteNames;
+            localStorage["displayControls"] = DEFAULTS.displayKeyboardControls;
+            localStorage["previewNotes"] = DEFAULTS.previewNotes;
+            localStorage["chordSize"] = DEFAULTS.chordSize;
+        }
+    }
 }

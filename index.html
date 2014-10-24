@@ -29,9 +29,10 @@
         <button id="play">PLAY! <small class="controls">TAB</small></button>
         <button id="repeat">REPEAT <small class="controls">SPACE</small></button><br>
         <button id="submit">SUBMIT <small class="controls">ENTER</small></button><br>
+        <button id="help">WHAT'S THIS?</button><br>
     </div>
     <div class="right-sidebar">
-        Play <input type="text" value="3" id="chordsize" class="note-number"> notes<br>
+        Play <input type="text" value="2" id="chordsize" class="note-number"> notes<br>
         <input type="checkbox" id="tonic" checked> Play tonic (C3)<br>
         <input type="checkbox" id="display-notename" checked> Display note names<br>
         <input type="checkbox" id="display-controls" checked> Display keyboard controls<br>
@@ -68,6 +69,30 @@
 
     </div>
 </div>
-<!--<div class="result"> correct </div>-->
+<div class="help-outer">
+    <div class="help-inner">
+    <h2>How to play</h2>
+    <p>
+        <strong>Positive pitch</strong> is an app to help you train your musical ear.  When you press
+        play, you will be played a chord with the selected number of notes.  You can
+        select the notes that you think the chord contains and submit, or have the
+        chord repeated. After you submit, the correct chord is displayed in orange.
+    </p>
+    <h2>How it works</h2>
+    <p>
+        The app uses the HTML5 &lt;audio&gt; tag to load audio.
+        Javascript &amp; jQuery do the rest. Have a look at the 
+        <a href="https://github.com/buesing/positive-pitch" target="_blank">
+        GitHub repository</a> if you like.
+    </p>
+    <h2>Got requests?</h2>
+    <p>
+        If there are features you would like to see implemented, don't hesitate to
+        <a href="mailto:moriz.buesing@gmail.com" target="_blank">mail me</a> or tweet at me:
+        <a href="https://twitter.com/kvrtvd" target="_blank">@kvrtvd</a>.
+        I'm always happy about new suggestions.
+    </p>
+    </div>
+</div>
 </body>
 </html>
