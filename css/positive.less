@@ -92,7 +92,8 @@ button:active {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-button > small {
+button > small.controls {
+    display: none;
     font-size: 10pt;
     font-weight: normal;
     color: @bright;
@@ -199,6 +200,9 @@ button > small {
     margin-left: 7.285714285714286%;
     color: @bright;
     border-radius: 0 0 5px 5px;
+}
+.key-controls {
+    display: none;
 }
 .white-key > .key-controls {
     margin-top: 280px;
