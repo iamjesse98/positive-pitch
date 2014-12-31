@@ -232,6 +232,7 @@ window.onload = function() {
             $(".help-outer").hide();
         });
     });
+    $("#help").trigger("click");
     /*for (var i = 0; i < 12; i++) {*/
     /*$("#key_" + i).click(function() {var a = i; pp.addGuess(a);});*/
     /*}*/

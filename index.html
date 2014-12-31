@@ -3,11 +3,10 @@
 <head>
  <meta charset="UTF-8"> 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet/less" type="text/css" href="css/positive.less" charset="utf-8"></script> 
+    <link rel="stylesheet" type="text/css" href="css/positive.css" charset="utf-8"></script> 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/positive-pitch.js" charset="utf-8"></script> 
-	<script type="text/javascript" src="js/less.js" charset="utf-8"></script> 
     <title>positive pitch</title>
 </head>
 <body>
@@ -44,9 +43,12 @@
             <option value="major">Major</option>
             <option value="minor">Minor</option>
         </select>
-        <br>
-        <br>
-        Built by <a target="_blank" href="http://www.buesing.at/">Moriz Büsing</a>.
+        <div class="share">
+            Built by <a target="_blank" href="http://www.buesing.at/">Moriz Büsing</a>.<br>
+            <a href="https://twitter.com/share"
+            class="twitter-share-button" data-size="large">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
     </div>
     <div class="piano-wrapper">
         <div class="white-wrapper">
@@ -108,5 +110,6 @@
     ga('create', 'UA-50720727-3', 'auto');
     ga('send', 'pageview');
 </script>
+
 </body>
 </html>
