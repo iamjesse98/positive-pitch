@@ -1,0 +1,236 @@
+$dark: #2c3e50;
+$darker: #1c2e40;
+$dark-selected: #5c6e80;
+$bright: #ecf0f1;
+$medium: #bdc3c7;
+$medium-dark: #7f8c8d;
+$white: #ffffff;
+$color: #e67e22;
+
+body {
+    background-color: $bright;
+    color: $dark;
+    font-family: 'Roboto', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: $color;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.container {
+    width: 1000px;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+}
+h1 {
+    font-size: 50pt;
+    font-weight: 900;
+    color: $dark;
+    margin-bottom: 20px;
+}
+h1 > small {
+    font-size: 24pt;
+    font-weight: bold;
+    color: $medium-dark;
+}
+h2 {
+    font-size: 20pt;
+    font-weight: bold;
+    color: $dark;
+}
+p {
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.left-sidebar {
+    text-align: right;
+    float: left;
+    width: 180px;
+}
+.right-sidebar {
+    text-align: left;
+    float: right;
+    width: 180px;
+}
+
+input.note-number {
+    width: 20px;
+}
+
+button {
+    position: relative;
+    vertical-align: top;
+    width: 150px;
+    height: 45px;
+    padding: 0;
+    font-size: 13pt;
+    font-weight: bold;
+    color: $bright;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: $dark;
+    border: 0;
+    border-bottom: 2px solid $darker;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px $darker;
+    box-shadow: inset 0 -2px $darker;
+    margin-bottom: 10px;
+}
+button:active {
+    top: 1px;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+button > small.controls {
+    display: none;
+    font-size: 10pt;
+    font-weight: normal;
+    color: $bright;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: $medium-dark;
+}
+#play {
+    background: #e67e22;
+    border-bottom: 2px solid $color;
+    -webkit-box-shadow: inset 0 -2px #da751c;
+    box-shadow: inset 0 -2px #da751c;
+}
+#result {
+    font-weight: bold;
+}
+.stats {
+    width: 610px;
+    margin-top: 410px;
+    font-size: 24pt;
+    text-align: left;
+    font-weight: bold;
+    color: $medium-dark;
+}
+#result {
+    float: right;
+}
+
+.help-outer {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+.help-inner {
+    border-radius: 4px;
+    position: absolute;
+    z-index: 6;
+    padding: 30px;
+    background-color: $bright;
+    opacity: 0.8;
+    width: 400px;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: $dark;
+}
+
+/*************************** PIANO ******************************/
+.piano-wrapper {
+    width: 600px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 5px solid $medium-dark;
+    float: none;
+    margin: auto;
+    position: relative;
+}
+.white-wrapper, .black-wrapper {
+    pointer-events: none;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.black-wrapper {
+    z-index: 2;
+    height: 60%;
+}
+.key {
+    padding-top: 20px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    float: left;
+    font-weight: bold;
+    font-size: 16pt;
+    color: $dark;
+}
+.white-key {
+    pointer-events: auto;
+    z-index: 3;
+    background-color: $white;
+    width: 14.285714285714286%;
+    height: 100%;
+    border: 5px solid $medium-dark;
+    font-size: 18pt;
+}
+.black-key {
+    pointer-events:auto;
+    z-index: 4;
+    padding-top: 10px;
+    background-color: $dark;
+    height: 100%;
+    width: 7%;
+    margin-left: 7.285714285714286%;
+    color: $bright;
+    border-radius: 0 0 5px 5px;
+}
+.key-controls {
+    display: none;
+}
+.white-key > .key-controls {
+    margin-top: 280px;
+    font-size: 24pt;
+    color: $dark-selected;
+    bottom: 10px;
+    text-align: center;
+}
+.black-key > .key-controls {
+    margin-top: 160px;
+    font-size: 20pt;
+    color: $medium;
+    bottom: 10px;
+    text-align: center;
+}
+#key_1 {
+    margin-left: 10.8%;
+}
+#key_6 {
+    margin-left: 21.5%;
+}
+.active-white {
+    background-color: $medium;
+}
+.active-black {
+    background-color: $dark-selected;
+}
+.correct {
+    border: 5px solid $color;
+}
+.share {
+    margin-top: 250px;
+}
