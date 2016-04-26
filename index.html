@@ -3,6 +3,7 @@
 <head>
  <meta charset="UTF-8"> 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" charset="utf-8"></script> 
     <link rel="stylesheet" type="text/css" href="css/positive.css" charset="utf-8"></script> 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -24,56 +25,75 @@
 <audio id="sound_10" src="audio/10.ogg" preload="auto" type="audio/ogg"></audio>
 <audio id="sound_11" src="audio/11.ogg" preload="auto" type="audio/ogg"></audio>
 <div class="container">
-    <h1>positive pitch <small>ear trainer</small></h1>
-    <div class="left-sidebar">
-        <button id="play">PLAY! <small class="controls">TAB</small></button>
-        <button id="repeat">REPEAT <small class="controls">SPACE</small></button><br>
-        <button id="submit">SUBMIT <small class="controls">ENTER</small></button><br>
-        <button id="help">WHAT'S THIS?</button><br>
-    </div>
-    <div class="right-sidebar">
-        Play <input type="text" value="2" id="chordsize" class="note-number"> notes<br>
-        <input type="checkbox" id="tonic" checked> Play tonic (C3)<br>
-        <input type="checkbox" id="display-notename" checked> Display note names<br>
-        <input type="checkbox" id="display-controls"> Display keyboard controls<br>
-        <input type="checkbox" id="preview-notes"> Preview notes<br>
-        Scale:
-        <select id="scale-selector" size="1">
-            <option value="chromatic">Chromatic</option>
-            <option value="major">Major</option>
-            <option value="minor">Minor</option>
-        </select>
-        <div class="share">
-            Built by <a target="_blank" href="http://www.buesing.at/">Moriz Büsing</a>.<br>
-            <a href="https://twitter.com/share"
-            class="twitter-share-button" data-size="large">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-    </div>
-    <div class="piano-wrapper">
-        <div class="white-wrapper">
-            <div class="key white-key" id="key_0" ><span class="notename">1</span><div class="controls key-controls">A</div></div>
-            <div class="key white-key" id="key_2" ><span class="notename">2</span><div class="controls key-controls">S</div></div>
-            <div class="key white-key" id="key_4" ><span class="notename">3</span><div class="controls key-controls">D</div></div>
-            <div class="key white-key" id="key_5" ><span class="notename">4</span><div class="controls key-controls">F</div></div>
-            <div class="key white-key" id="key_7" ><span class="notename">5</span><div class="controls key-controls">G</div></div>
-            <div class="key white-key" id="key_9" ><span class="notename">6</span><div class="controls key-controls">H</div></div>
-            <div class="key white-key" id="key_11"><span class="notename">7</span><div class="controls key-controls">J</div></div>
-        </div>
-        <div class="black-wrapper">
-            <div class="key black-key" id="key_1" ><span class="notename">b2</span><div class="controls key-controls">W</div></div>
-            <div class="key black-key" id="key_3" ><span class="notename">b3</span><div class="controls key-controls">E</div></div>
-            <div class="key black-key" id="key_6" ><span class="notename">#4</span><div class="controls key-controls">T</div></div>
-            <div class="key black-key" id="key_8" ><span class="notename">b6</span><div class="controls key-controls">Z</div></div>
-            <div class="key black-key" id="key_10"><span class="notename">b7</span><div class="controls key-controls">U</div></div>
-        </div>
-        <div class="stats">
-            <span id="right-guesses">0</span> of <span id="total-guesses">0</span> correct 
-            (<span id="percentage-right">100</span>%)
-            <span id="result"></span><br>
-        </div>
-
-    </div>
+    <div class="row">
+		<div class="col-md-12 col-lg-7 col-lg-offset-2">
+			<h1>positive pitch <small>ear trainer</small></h1>
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-sm-2">
+			<div class="row">
+				<div class="ctl-button col-sm-12 col-xs-3">
+					<button id="play">PLAY! <small class="controls">TAB</small></button>
+				</div>
+				<div class="ctl-button col-sm-12 col-xs-3">
+					<button id="repeat">REPEAT <small class="controls">SPACE</small></button><br>
+				</div>
+				<div class="ctl-button col-sm-12 col-xs-3">
+					<button id="submit">SUBMIT <small class="controls">ENTER</small></button><br>
+				</div>
+				<div class="ctl-button col-sm-12 col-xs-3">
+					<button id="help">WHAT'S THIS?</button><br>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-7">
+			<div class="piano-wrapper">
+				<div class="piano-inner-wrapper">
+					<div class="white-wrapper">
+						<div class="key white-key" data-key="0" ><span class="notename">1</span><div class="controls key-controls">A</div></div>
+						<div class="key white-key" data-key="2" ><span class="notename">2</span><div class="controls key-controls">S</div></div>
+						<div class="key white-key" data-key="4" ><span class="notename">3</span><div class="controls key-controls">D</div></div>
+						<div class="key white-key" data-key="5" ><span class="notename">4</span><div class="controls key-controls">F</div></div>
+						<div class="key white-key" data-key="7" ><span class="notename">5</span><div class="controls key-controls">G</div></div>
+						<div class="key white-key" data-key="9" ><span class="notename">6</span><div class="controls key-controls">H</div></div>
+						<div class="key white-key" data-key="11"><span class="notename">7</span><div class="controls key-controls">J</div></div>
+					</div>
+					<div class="black-wrapper">
+						<div class="key black-key" data-key="1" ><span class="notename">b2</span><div class="controls key-controls">W</div></div>
+						<div class="key black-key" data-key="3" ><span class="notename">b3</span><div class="controls key-controls">E</div></div>
+						<div class="key black-key" data-key="6" ><span class="notename">#4</span><div class="controls key-controls">T</div></div>
+						<div class="key black-key" data-key="8" ><span class="notename">b6</span><div class="controls key-controls">Z</div></div>
+						<div class="key black-key" data-key="10"><span class="notename">b7</span><div class="controls key-controls">U</div></div>
+					</div>
+				</div>
+				<div class="stats">
+					<span id="right-guesses">0</span> of <span id="total-guesses">0</span> correct 
+					(<span id="percentage-right">100</span>%)
+					<span id="result"></span><br>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			Play <input type="text" value="2" id="chordsize" class="note-number"> notes<br>
+			<input type="checkbox" id="tonic" checked> Play tonic (C3)<br>
+			<input type="checkbox" id="display-notename" checked> Display note names<br>
+			<input type="checkbox" id="display-controls"> Display keyboard controls<br>
+			<input type="checkbox" id="preview-notes"> Preview notes<br>
+			Scale:
+			<select id="scale-selector" size="1">
+				<option value="chromatic">Chromatic</option>
+				<option value="major">Major</option>
+				<option value="minor">Minor</option>
+			</select>
+			<div class="share">
+				Built by <a target="_blank" href="http://www.buesing.at/">Moriz Büsing</a>.<br>
+				<a href="https://twitter.com/share"
+				class="twitter-share-button" data-size="large">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="help-outer">
     <div class="help-inner">

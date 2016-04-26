@@ -117,10 +117,10 @@ function PositivePitch() {
 
     this.addGuess = function(guess) {
         this.previewNotes && playSound(guess);
-        if ($("#key_" + guess).hasClass("white-key")) {
-            $("#key_" + guess).toggleClass("active-white");
+        if ($(".key[data-key=" + guess + "]").hasClass("white-key")) {
+            $(".key[data-key=" + guess + "]").toggleClass("active-white");
         } else {
-            $("#key_" + guess).toggleClass("active-black");
+            $(".key[data-key=" + guess + "]").toggleClass("active-black");
         }
         var index = this.guesses.indexOf(guess);
         if (index === -1)
@@ -149,7 +149,7 @@ function PositivePitch() {
 
     this.displayCorrectChord = function() {
         for (var i = 0; i < this.currentChord.length; i++) {
-            $("#key_" + this.currentChord[i]).addClass("correct");
+            $(".key[data-key=" + this.currentChord[i] + "]").addClass("correct");
         }
     }
 
@@ -232,28 +232,31 @@ window.onload = function() {
             $(".help-outer").hide();
         });
     });
-    $("#help").trigger("click");
     /*for (var i = 0; i < 12; i++) {*/
     /*$("#key_" + i).click(function() {var a = i; pp.addGuess(a);});*/
     /*}*/
-    $("#key_0").click(function() {pp.addGuess(0);});
-    $("#key_1").click(function() {pp.addGuess(1);});
-    $("#key_2").click(function() {pp.addGuess(2);});
-    $("#key_3").click(function() {pp.addGuess(3);});
-    $("#key_4").click(function() {pp.addGuess(4);});
-    $("#key_5").click(function() {pp.addGuess(5);});
-    $("#key_6").click(function() {pp.addGuess(6);});
-    $("#key_7").click(function() {pp.addGuess(7);});
-    $("#key_8").click(function() {pp.addGuess(8);});
-    $("#key_9").click(function() {pp.addGuess(9);});
-    $("#key_10").click(function() {pp.addGuess(10);});
-    $("#key_11").click(function() {pp.addGuess(11);});
+	$(".key").click(function() {
+		pp.addGuess(parseInt($(this).attr("data-key")))
+	});
+    //$("#key_0").click(function() {pp.addGuess(0);});
+    //$("#key_1").click(function() {pp.addGuess(1);});
+    //$("#key_2").click(function() {pp.addGuess(2);});
+    //$("#key_3").click(function() {pp.addGuess(3);});
+    //$("#key_4").click(function() {pp.addGuess(4);});
+    //$("#key_5").click(function() {pp.addGuess(5);});
+    //$("#key_6").click(function() {pp.addGuess(6);});
+    //$("#key_7").click(function() {pp.addGuess(7);});
+    //$("#key_8").click(function() {pp.addGuess(8);});
+    //$("#key_9").click(function() {pp.addGuess(9);});
+    //$("#key_10").click(function() {pp.addGuess(10);});
+    //$("#key_11").click(function() {pp.addGuess(11);});
     document.onkeydown = function(e) {pp.handleKey(e);};
 
     if (supports_html5_storage()) {
         if (localStorage["hasStorage"] == true) {
             // load stored state
             pp.tonicOn = localStorage["tonic"];
+            $("#tonic").prop("checked", localStorage["tonic"]);
             $("#tonic").prop("checked", localStorage["tonic"]);
         } else {
             localStorage["hasStorage"] = true;
@@ -264,4 +267,7 @@ window.onload = function() {
             localStorage["chordSize"] = DEFAULTS.chordSize;
         }
     }
+	if (!localStorage["hasStorage"]) {
+		$("#help").trigger("click");
+	}
 }
