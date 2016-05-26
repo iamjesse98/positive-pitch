@@ -232,24 +232,9 @@ window.onload = function() {
             $(".help-outer").hide();
         });
     });
-    /*for (var i = 0; i < 12; i++) {*/
-    /*$("#key_" + i).click(function() {var a = i; pp.addGuess(a);});*/
-    /*}*/
     $(".key").click(function() {
         pp.addGuess(parseInt($(this).attr("data-key")))
     });
-    //$("#key_0").click(function() {pp.addGuess(0);});
-    //$("#key_1").click(function() {pp.addGuess(1);});
-    //$("#key_2").click(function() {pp.addGuess(2);});
-    //$("#key_3").click(function() {pp.addGuess(3);});
-    //$("#key_4").click(function() {pp.addGuess(4);});
-    //$("#key_5").click(function() {pp.addGuess(5);});
-    //$("#key_6").click(function() {pp.addGuess(6);});
-    //$("#key_7").click(function() {pp.addGuess(7);});
-    //$("#key_8").click(function() {pp.addGuess(8);});
-    //$("#key_9").click(function() {pp.addGuess(9);});
-    //$("#key_10").click(function() {pp.addGuess(10);});
-    //$("#key_11").click(function() {pp.addGuess(11);});
     document.onkeydown = function(e) {pp.handleKey(e);};
 
     if (supports_html5_storage()) {
