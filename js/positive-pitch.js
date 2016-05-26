@@ -40,23 +40,23 @@ var channel_max = 20;
 var audiochannels = new Array();
 
 for (i = 0; i < channel_max; i++) {
-	audiochannels[i] = new Array();
-	audiochannels[i]['channel'] = new Audio();
-	audiochannels[i]['finished'] = -1;
+    audiochannels[i] = new Array();
+    audiochannels[i]['channel'] = new Audio();
+    audiochannels[i]['finished'] = -1;
 }
 
 function playSound(s) {
     s = "sound_" + (s);
-	for (i = 0; i < audiochannels.length; i++) {
-		thistime = new Date();
-		if (audiochannels[i]['finished'] < thistime.getTime()) { // is this channel finished?
-			audiochannels[i]['finished'] = thistime.getTime() + document.getElementById(s).duration*1000;
-			audiochannels[i]['channel'].src = document.getElementById(s).src;
-			audiochannels[i]['channel'].load();
-			audiochannels[i]['channel'].play();
-			break;
-		}
-	}
+    for (i = 0; i < audiochannels.length; i++) {
+        thistime = new Date();
+        if (audiochannels[i]['finished'] < thistime.getTime()) { // is this channel finished?
+            audiochannels[i]['finished'] = thistime.getTime() + document.getElementById(s).duration*1000;
+            audiochannels[i]['channel'].src = document.getElementById(s).src;
+            audiochannels[i]['channel'].load();
+            audiochannels[i]['channel'].play();
+            break;
+        }
+    }
 }
 
 function PositivePitch() {
@@ -235,9 +235,9 @@ window.onload = function() {
     /*for (var i = 0; i < 12; i++) {*/
     /*$("#key_" + i).click(function() {var a = i; pp.addGuess(a);});*/
     /*}*/
-	$(".key").click(function() {
-		pp.addGuess(parseInt($(this).attr("data-key")))
-	});
+    $(".key").click(function() {
+        pp.addGuess(parseInt($(this).attr("data-key")))
+    });
     //$("#key_0").click(function() {pp.addGuess(0);});
     //$("#key_1").click(function() {pp.addGuess(1);});
     //$("#key_2").click(function() {pp.addGuess(2);});
@@ -267,7 +267,7 @@ window.onload = function() {
             localStorage["chordSize"] = DEFAULTS.chordSize;
         }
     }
-	if (!localStorage["hasStorage"]) {
-		$("#help").trigger("click");
-	}
+    if (!localStorage["hasStorage"]) {
+        $("#help").trigger("click");
+    }
 }
